@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
 require('dotenv')
+const mongoose = require('mongoose')
 let conection = async() =>{
     try {
         mongoose.connect(
