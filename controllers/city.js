@@ -60,6 +60,42 @@ const controller = {
                 message: error.message,
             })
         }
+    },
+
+    read: async (req, res) => {
+        let query = {}
+        if(req.query.continent){
+            query = {
+                continent:req.query.continent
+            } 
+        }
+        if (req.query.name){
+            query = {
+                ...query,
+                name: { $regex: req.query.name, $options: 'i' },
+            }
+        }
+     
+        try {
+            let all = await City.find(query)
+            if (all) {
+                res.status(200).json({
+                    Response: all,
+                    success: true,
+                    message: "cities were obtained"
+                })
+            } else {
+                res.status(404).json({
+                    success: false,
+                    message: "there are no cities"
+                })
+            }
+        } catch (error) {
+            res.status(400).json({
+                success: false,
+                message: error.message
+            })
+        }
     }
 }
 
