@@ -1,7 +1,8 @@
 var router = require('express').Router()
 
-let {create} = require('../controllers/hotel')
+let {create,update} = require('../controllers/hotel')
 
 router.post('/create',create);
+router.patch('/:id',update);
 
 module.exports = router;
