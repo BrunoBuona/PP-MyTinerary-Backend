@@ -8,7 +8,7 @@ const controller = {
             res.status(201).json({
                 id: new_show._id,
                 success: true,
-                message: 'the hotel was successfully created',
+                message: 'the show was successfully created',
             });
         }catch(error) {
             res.status(400).json({
@@ -24,12 +24,12 @@ const controller = {
             if(oneU){
                 res.status(200).json({
                     success: true,
-                    message: 'the hotel was successfully updated',
+                    message: 'the show was successfully updated',
                 })
             }else{
                 res.status(404).json({
                     success: false,
-                    message: 'the hotel was not found',
+                    message: 'the show was not found',
                 })
             }
         }catch(error) {
