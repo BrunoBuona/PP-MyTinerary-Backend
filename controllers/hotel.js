@@ -1,3 +1,4 @@
+const { query } = require('express');
 const Hotel = require('../models/Hotel')
 
 const controller = {
@@ -36,6 +37,38 @@ const controller = {
             res.status(400).json({
                 success: false,
                 message: 'error.message',
+            });
+        }
+    },
+    read: async (req,res) => {
+        let query = {}
+        let order = {}
+        if(req.query.name){
+            query = {name: {"$regex": req.query.name}} 
+        }
+        if(req.query.order){
+            order = {name: req.query.order}
+        }
+        console.log(req.query)
+        try{
+            let all = await Hotel.find(query).sort(order);
+            if(all){
+                res.status(200).json({
+                    response: all,
+                    success: true,
+                    message: 'the hotel was successfully found',
+       
+                })
+            }else{
+                res.status(404).json({
+                    success: false,
+                    message: 'the hotel was not found',
+                })
+            }
+        }catch(error) {
+            res.status(400).json({
+                success: false,
+                message: error.message,
             });
         }
     },
