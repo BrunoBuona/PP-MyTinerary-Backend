@@ -80,7 +80,7 @@ const controller = {
             let all = await City.find(query)
             if (all) {
                 res.status(200).json({
-                    Response: all,
+                    response: all,
                     success: true,
                     message: "cities were obtained"
                 })
