@@ -1,6 +1,6 @@
 let itineraries  = [
     {
-        citiId: "636eb07acf442ff4b82a58ff",
+        cityId: "6373671259fb03dfa9d88ca7",
         name: "Visit the Coliseum",
         photo: [
             "https://www.experienciasviajeras.blog/wp-content/uploads/2019/06/Visitar-el-Coliseo-sin-colas2.jpg",
@@ -12,7 +12,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f7"
     },
     {
-        citiId: "636eb07acf442ff4b82a58ff",
+        cityId: "6373671259fb03dfa9d88ca7",
         name: "Fontana Di Trevi",
         photo: [
             "https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/08/29115355/trevi-2.jpg",
@@ -25,7 +25,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f7"
     },
     {
-        citiId: "636eb07acf442ff4b82a58fe",
+        cityId: "6373671259fb03dfa9d88ca8",
         name: "Eiffel Tower",
         photo: [
             "https://www.tegustaviajar.com/wp-content/uploads/2020/02/torre-eiffel.jpg",
@@ -38,7 +38,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f7"
     },
     {
-        citiId: "636eb07acf442ff4b82a58fe",
+        cityId: "6373671259fb03dfa9d88ca8",
         name: "Louvre Museum",
         photo: [
             "https://historia.nationalgeographic.com.es/medio/2019/12/12/louvre-en-paris_3ae1c703_1280x720.jpg",
@@ -51,7 +51,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f8"
     },
     {
-        citiId: "636eb07acf442ff4b82a58ff",
+        cityId: "6373671259fb03dfa9d88ca9",
         name: "Ateneo Grand Splendid",
         photo: [
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/60/17/f3/img-20181106-140326-003.jpg?w=1200&h=-1&s=1",
@@ -64,7 +64,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f8"
     },
     {
-        citiId: "636eb07acf442ff4b82a58ff",
+        cityId: "6373671259fb03dfa9d88ca9",
         name: "Teatro Colon",
         photo: [
             "https://imagenes.elpais.com/resizer/igaFj4nWHLHK9kk1JQiAb_VOmuc=/1960x1470/filters:focal(2815x2594:2825x2604)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/L6YDGUWH4RGQDAQZADKN2266VE.jpg",
@@ -77,7 +77,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f8"
     },
     {
-        citiId: "636eb07acf442ff4b82a5902",
+        cityId: "6373671259fb03dfa9d88cac",
         name: "British Museum",
         photo: [
             "https://totenart.com/noticias/wp-content/uploads/2020/01/totenart-Museo-Britanico-Londres-1.jpg",
@@ -90,7 +90,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f5"
     },
     {
-        citiId: "636eb07acf442ff4b82a5902",
+        cityId: "6373671259fb03dfa9d88cac",
         name: "London Eye",
         photo: [
             "https://cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/TVGWKLDNB5EUHDMFLW5VR3AZV4.jpg",
@@ -103,7 +103,7 @@ let itineraries  = [
         userId: "636e884578fa70e8f8c471f5"
     },
     {
-        citiId: "636eb07acf442ff4b82a5903",
+        cityId: "6373671259fb03dfa9d88cad",
         name: "Statue of Liberty",
         photo: [
             "https://www.turismonuevayork.com/wp-content/uploads/2014/09/La-Estatua-de-la-Libertad-en-Nueva-York.jpg",
@@ -117,7 +117,7 @@ let itineraries  = [
     },
     {
 
-        citiId: "636eb07acf442ff4b82a5903",
+        cityId: "6373671259fb03dfa9d88cad",
         name: "Brooklyn Bridge",
         photo: [
         "https://static.anuevayork.com/wp-content/uploads/2020/01/07015753/Consejos-para-cruzar-el-puente-de-Brooklyn-a-pie-o-en-bici.jpg",
@@ -131,7 +131,7 @@ let itineraries  = [
     },
     {
 
-        citiId: "636eb07acf442ff4b82a5907",
+        cityId: "6373671259fb03dfa9d88cb1",
         name: "Tokyo Skytree",
         photo: [
             "https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2014/12/skytree-bridge-1024x768.jpg",
@@ -145,7 +145,7 @@ let itineraries  = [
     },
     {
 
-        citiId: "636eb07acf442ff4b82a5907",
+        cityId: "6373671259fb03dfa9d88cb1",
         name: "Sensoji",
         photo: [
             "https://img.freepik.com/foto-gratis/cerezos-flor-templo-sensoji-asakusa-tokio-japon_335224-203.jpg?w=2000",
@@ -165,7 +165,7 @@ const Itinerary = require('../Itinerary')
 
 itineraries .forEach(e=> {
     Itinerary.create({
-        citiId: e.citiId,
+        cityId: e.cityId,
         name: e.name,
         photo: e.photo,
         description: e.description,
