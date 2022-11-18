@@ -1,10 +1,10 @@
 let router = require('express').Router();
 
-let { create,update,destroy,readItinerariesByCity } = require('../controllers/itinerary');
+let { create,update,destroy,readItineraries} = require('../controllers/itinerary');
 
 router.post('/', create);
 router.put('/:id', update);
 router.delete('/:id',destroy);
-router.get('/api/itineraries/:id',readItinerariesByCity)
+router.get('/',readItineraries);
 
 module.exports = router;

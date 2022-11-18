@@ -64,16 +64,14 @@ const controller = {
 
     read: async (req, res) => {
         let query = {}
+        if (req.query.name){
+            query = {name: { "$regex": req.query.name, $options: 'i' }}
+        }
         if(req.query.continent){
             query = {
-                continent:(req.query.continent)
-            } 
-        }
-        if (req.query.name){
-            query = {
                 ...query,
-                name: { $regex: req.query.name, $options: 'i' },
-            }
+                continent: req.query.continent.split(',')
+            } 
         }
         
         try {

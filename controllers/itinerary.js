@@ -1,3 +1,4 @@
+const { query } = require('express');
 const Itinerary = require('../models/Itinerary')
 
 const controller = {
@@ -61,13 +62,18 @@ const controller = {
             })
         }
     },
-    readItinerariesByCity: async (req, res)=> {
-        let {citiId} = req.params    
-
+    readItineraries: async (req, res)=> {
+        let query = {};
+        if(req.query.cityId){
+            query = {
+                cityId:req.query.cityId
+            }
+        }
         try {
-            let itinerary = await Itinerary.find({citiId})
+            let itinerary = await Itinerary.find(query)
             if(itinerary){
                 res.status(200).json({
+                    response: itinerary,
                     success: true,
                     message: 'itinerary'
                 })
