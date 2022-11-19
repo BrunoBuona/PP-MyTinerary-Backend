@@ -72,6 +72,29 @@ const controller = {
             });
         }
     },
+    readOne: async(req, res) => {
+        let { id } = req.params
+        try {
+            let oneR = await Hotel.findById(id).populate([{path:'citiId', select: 'name'},{path:'userId',select:'name photo'}])
+            if(id){
+                res.status(200).json({
+                    response: oneR,
+                    success: true,
+                    message: 'Hotel recovery succesfully'
+                })
+            }else{
+                res.status(404).json({
+                    success: false,
+                    message: 'No Hotel found'
+                })
+            }
+        } catch (error) {
+            res.status(400).json({
+                success: false,
+                message: error.message
+            })
+        }
+        },
     destroy: async function (req, res) {
         let {id} = req.params;
         try {
