@@ -61,6 +61,32 @@ const controller = {
                 message: error.message,
             });
         }
+    },
+    readShows: async (req, res)=> {
+        let query = {};
+        if(req.query.hotelId){
+            query = {hotelId: req.query.hotelId};
+        }
+        try {
+            let hotel = await Show.find(query)
+            if(hotel){
+                res.status(200).json({
+                    response: hotel,
+                    success: true,
+                    message: 'Show was found!'
+                })
+            }else{
+                res.status(404).json({
+                    success: false,
+                    message: 'Show was not found'
+                })
+            }
+        } catch (error) {
+            res.status(400).json({
+                success: false,
+                message: error.message
+            })
+        }
     }
 }
 module.exports = controller;
