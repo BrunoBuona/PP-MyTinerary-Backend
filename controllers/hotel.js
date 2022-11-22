@@ -14,7 +14,7 @@ const controller = {
         }catch(error) {
             res.status(400).json({
                 success: false,
-                message: 'error.message',
+                message: error.message,
             });
         }
     },
@@ -61,6 +61,7 @@ const controller = {
                 })
             }else if(all.length === 0){
                 res.status(404).json({
+                    response: [],
                     success: false,
                     message: 'the hotel was not found',
                 })
