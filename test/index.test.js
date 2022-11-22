@@ -13,6 +13,7 @@ describe("GET /api/hotels/?name=&order=", () => {
 
     })});
 
+
 describe('GET /api/cities', function (done) {
     
     it('should return an array of objects', function (done) {
@@ -64,3 +65,4 @@ it("verify the status 201", (done) => {
         })
         expect(201, done());
 })});
+
