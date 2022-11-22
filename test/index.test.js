@@ -48,7 +48,7 @@ describe("verification of hotel creation", () => {
         done();
     });
 });
-
+describe("verification of hotel creation", () => {
 it("verify the status 201", (done) => {
     request(app)
         .post("/api/hotels/")
@@ -63,4 +63,4 @@ it("verify the status 201", (done) => {
             userId: "636f1edc14f79b76f5e442ba",
         })
         expect(201, done());
-});
+})});
