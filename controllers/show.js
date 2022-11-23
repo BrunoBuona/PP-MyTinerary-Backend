@@ -8,12 +8,12 @@ const controller = {
             res.status(201).json({
                 id: new_show._id,
                 success: true,
-                message: 'the show was successfully created',
+                message: 'The show was successfully created.',
             });
         }catch(error) {
             res.status(400).json({
                 success: false,
-                message: 'error.message',
+                message: error.message,
             });
         }
     },
@@ -24,18 +24,18 @@ const controller = {
             if(oneU){
                 res.status(200).json({
                     success: true,
-                    message: 'the show was successfully updated',
+                    message: 'The show was successfully updated.',
                 })
             }else{
                 res.status(404).json({
                     success: false,
-                    message: 'the show was not found',
+                    message: 'The show was not found.',
                 })
             }
         }catch(error) {
             res.status(400).json({
                 success: false,
-                message: 'error.message',
+                message: error.message,
             });
         }
     },
@@ -47,12 +47,12 @@ const controller = {
                 res.status(200).json({
                     id: one._id,
                     success: true,
-                    message: 'the show was successfully deleted',
+                    message: 'The show was successfully deleted.',
                 });
             } else {
                 res.status(404).json({
                     success: false,
-                    message: 'the show was not found',
+                    message: 'The show was not found.',
                 });
             }
         } catch (error) {
@@ -73,12 +73,12 @@ const controller = {
                 res.status(200).json({
                     response: hotel,
                     success: true,
-                    message: 'Show was found!'
+                    message: 'Show was found.'
                 })
             }else{
                 res.status(404).json({
                     success: false,
-                    message: 'Show was not found'
+                    message: 'Show was not found.'
                 })
             }
         } catch (error) {
