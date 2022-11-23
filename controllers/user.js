@@ -8,12 +8,12 @@ const controller = {
             res.status(201).json({
                 id: new_user._id,
                 success: true,
-                massage: 'the user was successfully created',
+                massage: 'The user was successfully created.',
             });
         }catch(error) {
             res.status(400).json({
                 success: false,
-                massage: 'error.message',
+                massage: error.message,
             });
         }
     },

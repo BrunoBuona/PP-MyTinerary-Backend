@@ -1,39 +1,35 @@
-
 const app = require("../app");
 const chai = require("chai");
 const assert = chai.assert;
 const expect = chai.expect;
 const request = require("supertest");
 
-describe("GET /api/hotels/?name=&order=", () => {
-  it("Deberia traerme un error 404",
+describe("GET /api/hotels/", () => {
+  it("Brings me an 404 error.",
     function (done) {
-        let intentionalError = 'Asddd';
+        let intentionalError = 'This will be always an error.';
       request(app).get(`/api/hotels/?name=${intentionalError}&order=`).expect(404, done);
-
     })});
 
 
-describe('GET /api/cities', function (done) {
-    
-    it('should return an array of objects', function (done) {
+describe('GET /api/cities', function (done) { 
+    it('Check if returns an Array of Objects.', function (done) {
         request(app)
             .get('/api/cities/')
             .expect(res => {
                 assert.typeOf(res.body.response,'array')
-                assert.isObject(res.body.response [0])
+                assert.isObject(res.body.response[0])
+                done()
             })
             .end(function (err, res) {
                 if (err) {
                     return done(err)
                 }
-                done()
             })
     })
 })
-
-describe("verification of hotel creation", () => {
-    it("the user enter a number in the form", (done) => {
+describe("Form Validation", () => {
+    it("The user setted a number at Capacity property.", (done) => {
         let user = {
         name: "Hotel Novotel Barcelona City",
         photo: [
@@ -49,8 +45,8 @@ describe("verification of hotel creation", () => {
         done();
     });
 });
-describe("verification of hotel creation", () => {
-it("verify the status 201", (done) => {
+describe("Verification of Hotel Creation", () => {
+it("Check status 201.", (done) => {
     request(app)
         .post("/api/hotels/")
         .send({
