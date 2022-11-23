@@ -12,11 +12,11 @@ const controller = {
             res.status(200).json({
                 response: cities,
                 success: true,
-                message: 'cities Founded'
+                message: 'cities Founded.'
             })}else{
                 res.status(404).json({
                     success: false,
-                    message: 'cities not Founded'
+                    message: 'cities not Founded.'
                 })
             }
         }catch(error){
