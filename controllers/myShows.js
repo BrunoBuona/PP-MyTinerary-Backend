@@ -12,11 +12,11 @@ const controller = {
             res.status(200).json({
                 response: shows,
                 success: true,
-                message: 'Shows Founded'
+                message: 'Shows founded.'
             })}else{
                 res.status(404).json({
                     success: false,
-                    message: 'Shows not Founded'
+                    message: 'Shows not founded.'
                 })
             }
         }catch(error){

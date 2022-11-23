@@ -9,8 +9,8 @@ const schema = joi.object({
         .messages({
             "any.required": "This field is required.",
             "string.base": `Name must be a type of "text"`,
-            "string.min":"enter more than 2 letters",
-            "string.max":"ingresa menos de 20 letras"
+            "string.min": "Enter more than 2 letters",
+            "string.max": "Enter less than 20 letters",
         }),
     continent: joi
         .string()
@@ -20,8 +20,8 @@ const schema = joi.object({
         .messages({
             "any.required": "This field is required.",
             "string.empty": "This field is empty, please, introduce a continent.",
-            "string.min":"enter more than 2 letters",
-            "string.max":"ingresa menos de 20 letras"
+            "string.min": "Enter more than 2 letters",
+            "string.max": "Enter less than 20 letters",
         }),
     photo: joi
         .string()
