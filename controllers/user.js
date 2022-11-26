@@ -2,7 +2,8 @@ const User = require('../models/User')
 const bcryptsjs = require('bcryptjs')
 const crypto = require('crypto')
 const accountVerificationEmail = require('../config/accountVerificationEmail')
-const { userSignedUpResponse, userNotFoundResponse, userSignedOutResponse } = require('../config/responses')
+const { userSignedUpResponse, userNotFoundResponse, invalidCredentialsResponse} = require('../config/responses')
+const jwt = require('jsonwebtoken')
 
 const controller = {
 
@@ -34,16 +35,60 @@ const controller = {
         }
     },
 
-    unlogin: async(req,res,next) => {
-
+    signin: async (req, res, next) => {
+        const { password } = req.body;
+        const { user } = req;
         try {
-            const { id } = req.user
-            await User.findOneAndUpdate({ _id: id }, { logged: false })
-            return userSignedOutResponse(req,res)
-        } catch(error) {
-            next(error)
+          const checkPassword = bcryptsjs.compareSync(password, user.password);
+          if (checkPassword) {
+            const userDB = await User.findOneAndUpdate({ _id: user.id }, { logged: true }, {new:true});
+            const token = jwt.sign(
+              {
+                id: userDB._id,
+                name: userDB.name,
+                photo: userDB.photo,
+                logged: userDB.logged,
+              },
+              process.env.KEY_JWT,
+              { expiresIn: 60 * 60 * 99 }
+            );
+            return res.status(200).json({
+              response: { user, token },
+              success: true,
+              message: "Welcome" + user.name,
+            });
+          }
+          return invalidCredentialsResponse(req, res);
+        } catch (error) {
+          next(error);
         }
-    }
+      },
+    
+      loginWithToken: async (req, res, next) => {
+        let { user } = req;
+        try {
+          return res.json({
+            response: {
+              user: {
+                name: user.name,
+                photo: user.photo,
+              },
+            },
+            success: true,
+            message: "Welcome !" + user.name,
+          });
+        } catch (error) {
+          next(error);
+        }
+      },
+    
+      salir: async (req, res, next) => {
+        try {
+        } catch (error) {
+          next(error);
+        }
+      },
+    };
 
-};
+
 module.exports = controller;
