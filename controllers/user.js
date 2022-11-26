@@ -2,7 +2,7 @@ const User = require('../models/User')
 const bcryptsjs = require('bcryptjs')
 const crypto = require('crypto')
 const accountVerificationEmail = require('../config/accountVerificationEmail')
-const { userSignedUpResponse, userNotFoundResponse } = require('../config/responses')
+const { userSignedUpResponse, userNotFoundResponse, userSignedOutResponse } = require('../config/responses')
 
 const controller = {
 
@@ -33,6 +33,17 @@ const controller = {
             next(error);
         }
     },
+
+    unlogin: async(req,res,next) => {
+
+        try {
+            const { id } = req.user
+            await User.findOneAndUpdate({ _id: id }, { logged: false })
+            return userSignedOutResponse(req,res)
+        } catch(error) {
+            next(error)
+        }
+    }
 
 };
 module.exports = controller;
