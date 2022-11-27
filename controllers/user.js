@@ -67,11 +67,14 @@ const controller = {
       loginWithToken: async (req, res, next) => {
         let { user } = req;
         try {
+          console.log(user.logged)
           return res.json({
             response: {
               user: {
                 name: user.name,
                 photo: user.photo,
+                logged: user.logged,
+                role: user.role,
               },
             },
             success: true,
