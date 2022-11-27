@@ -7,7 +7,12 @@ const schema = Joi.object({
         "string.min": "Please enter your full name",
         "string.max": "Please verify your name",
     }),
-    lastName: Joi.string().required().min(3).max(40).messages({
+    lastName: Joi
+    .string()
+    .required()
+    .min(3)
+    .max(40)
+    .messages({
         "string.base": "Please enter words",
         "any.required": "This field is required, please enter it",
         "string.min": "Please enter your full lastName",
