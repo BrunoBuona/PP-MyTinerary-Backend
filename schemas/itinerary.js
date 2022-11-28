@@ -1,54 +1,85 @@
-const joi = require('joi')
+const Joi = require("joi");
 
-const schema = joi.object({
-    name: joi
+const schema = Joi.object({
+    name: Joi
     .string()
     .required()
-    .min(2)
-    .max(70)
+    .min(3)
+    .max(40)
     .messages({
-        "any.required": "This field is required.",
-        "string.empty": "This field is empty, please, introduce a name.",
-        "string.min": "This field is required, please, introduce a name with a minimum of 2 letters.",
-        "string.max": "This field is required, please, introduce a name with less than 70 letters."
+      "string.base": "Please enter a text at name field",
+      "any.required": "This field is required, please enter it",
+      "string.min": "Minimum 3 characters",
+      "string.max": "Maximum 40 characters",
     }),
-    photo: joi
+    photo: Joi
     .string()
     .required()
     .uri()
     .messages({
-        "any.required": "This field is required.",
-        "string.uri": "This field is required, please, introduce a photo."
+      "string.base": "Please enter a valid URL at photo field",
+      "string.empty": "The photo field is empty, please enter it",
     }),
-    description: joi.
-     string()
+  description: Joi
+    .string()
     .required()
     .min(1)
     .messages({
-        "any.required": "This field is required.",
-        "string.empty": "This field is empty, please, introduce a string."
+      "number.empty": "The capacity field is empty, please enter it",
+      "number.base": "You must enter a number at capacity field",
+      "number.min": "Please enter a higher capacity number at capacity field",
     }),
-    price: joi
+    price: Joi
     .number()
     .required()
     .messages({
-        "any.required": "This field is required.",
-        "string.empty": "This field is empty, please, introduce a number."
+        "any.required": "The population field is required",
+        "number.base": `Population must be a type of "number"`,
+        "number.empty": "The population field is empty"
     }),
-    duration: joi
+    duration: Joi
     .number()
     .required()
     .messages({
-        "any.required": "This field is required.",
-        "string.empty": "This field is empty, please, introduce a number."
+        "any.required": "The duration field is required",
+        "number.base": `duration must be a type of "number"`,
+        "number.empty": "The duration field is empty"
     }),
-    cityId: joi
+    cityId: Joi
     .any()
-    .required()
-    ,
-    userId: joi
+    .required(),
+    userId: Joi
     .any()
     .required()
 })
 
-module.exports = schema
+module.exports = schema;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

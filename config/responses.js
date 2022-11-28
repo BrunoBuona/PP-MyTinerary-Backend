@@ -46,6 +46,32 @@ function verifyResponse(req,res) {
         message: 'Please, verify your email account and try again'
     })
 }
+function showFound(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: 'You are not the owner of this event'
+    });
+}
+
+function notShow(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Show not Found ! ",
+    });
+}
+function hotelFound(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: 'You are not the owner of this hotel'
+    });
+}
+
+function notHotel(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Not Hotel Found ! ",
+    });
+}
 
 function itineraryFound(req, res) {
     return res.status(401).json({
@@ -61,6 +87,8 @@ function notItinerary(req, res) {
     });
 }
 
+
+
 module.exports = {
     userSignedUpResponse,
     userExistsResponse,
@@ -69,6 +97,10 @@ module.exports = {
     mustSignInResponse,
     invalidCredentialsResponse,
     verifyResponse,
+    showFound,
+    notShow,
+    hotelFound,
+    notHotel,
     itineraryFound,
     notItinerary
 }
