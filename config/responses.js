@@ -46,6 +46,32 @@ function verifyResponse(req,res) {
         message: 'Please, verify your email account and try again'
     })
 }
+function showFound(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: 'You are not the owner of this event'
+    });
+}
+
+function notShow(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Show not Found ! ",
+    });
+}
+function hotelFound(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: 'You are not the owner of this hotel'
+    });
+}
+
+function notHotel(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Not Hotel Found ! ",
+    });
+}
 
 module.exports = {
     userSignedUpResponse,
@@ -54,5 +80,9 @@ module.exports = {
     userSignedOutResponse,
     mustSignInResponse,
     invalidCredentialsResponse,
-    verifyResponse
+    verifyResponse,
+    showFound,
+    notShow,
+    hotelFound,
+    notHotel
 }
