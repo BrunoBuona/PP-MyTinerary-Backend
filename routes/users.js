@@ -6,6 +6,7 @@ const mustSignIn = require("../middlewares/mustSignIn.js");
 const accountHasBeenVerified = require("../middlewares/accountHasBeenVerified");
 const schema = require('../schemas/user')
 const schemasignin = require('../schemas/signin')
+const schemaprofile = require('../schemas/profile')
 const validator = require('../middlewares/validator')
 const passport = require("../config/passport");
 
@@ -15,5 +16,5 @@ router.post("/signin",validator(schemasignin), accountExistsSignIn, accountHasBe
 router.post("/token", passport.authenticate("jwt", { session: false }), mustSignIn, loginWithToken);
 router.put("/signout",passport.authenticate("jwt", { session: false }),unlogin);
 router.get('/me/:id',readUserData)
-router.patch('/me/:id',updateUserData)
+router.patch('/me/:id',validator(schemaprofile),updateUserData)
 module.exports = router;
