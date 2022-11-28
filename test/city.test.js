@@ -48,5 +48,9 @@ describe('cities', function () {
                 done()
             })
     })
+    describe("DELETE /api/city/:id", () => {
+        it("Delete a city by id.", (done) => {
+            request(app).del("/api/cities/637c3779e5938fa56b70d021").expect(200).end(done)    });
+    })
 })
 
