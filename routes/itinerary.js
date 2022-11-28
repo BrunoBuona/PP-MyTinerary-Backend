@@ -9,7 +9,7 @@ const verifyItinerary = require('../middlewares/verifyItinerary')
 
 router.post('/',validator(schema),create);
 router.put('/:id',passport.authenticate("jwt", { session: false }),verifyItinerary(modelItinerary), update)
-router.delete('/:id',passport.authenticate("jwt", { session: false }),verifyItinerary(schema), destroy)
+router.delete('/:id',passport.authenticate("jwt", { session: false }),verifyItinerary(modelItinerary), destroy)
 router.get('/',readItineraries);
 
 module.exports = router;
