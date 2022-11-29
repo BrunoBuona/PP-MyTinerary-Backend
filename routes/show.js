@@ -1,10 +1,14 @@
 var router = require('express').Router()
-
+const validator = require('../middlewares/validator')
+const schemashow = require('../schemas/shows')
+const passport = require ('../config/passport')
+const model = require('../models/Show')
+const verifyShow = require('../middlewares/verifyShow')
 let {create, update, destroy, readShows} = require('../controllers/show')
 
-router.post('/create',create);
-router.patch('/:id',update);
-router.delete('/:id',destroy);
+router.post('/create',validator(schemashow),create);
+router.patch('/:id',passport.authenticate("jwt", { session: false }),verifyShow(model), update);
+router.delete('/:id',passport.authenticate("jwt", { session: false }),verifyShow(model),destroy);
 router.get('/', readShows)
 
 module.exports = router;

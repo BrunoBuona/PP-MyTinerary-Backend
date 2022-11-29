@@ -60,5 +60,11 @@ it("Check status 201.", (done) => {
             userId: "636f1edc14f79b76f5e442ba",
         })
         expect(201, done());
-})});
+})})
+
+describe("DELETE /api/hotel/:id", () => {
+    it("Delete a hotel by id.", (done) => {
+        request(app).del("/api/hotels/63844d25326fa29111d2e2e0").expect(200).end(done)    });
+});
+
 
