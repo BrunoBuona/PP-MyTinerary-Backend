@@ -6,7 +6,7 @@ const passport = require('../config/passport')
 const modelItinerary = require('../models/Itinerary')
 const verifyItinerary = require('../middlewares/verifyItinerary')
 
-
+//rutas
 router.post('/',validator(schema),create);
 router.put('/:id',passport.authenticate("jwt", { session: false }),verifyItinerary(modelItinerary), update)
 router.delete('/:id',passport.authenticate("jwt", { session: false }),verifyItinerary(modelItinerary), destroy)
