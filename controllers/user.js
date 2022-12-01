@@ -104,7 +104,6 @@ const controller = {
   loginWithToken: async (req, res, next) => {
     let { user } = req;
     try {
-      console.log(user.logged)
       return res.json({
         response: {
           user: {
