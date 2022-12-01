@@ -27,7 +27,8 @@ const controller = {
         let { showId } = req.params
         let { date } = req.query
         if (req.query.showId) {
-            showId = { name: req.query.showId }
+            console.log(req.query)
+            showId = { showId: req.query.showId}
         }
         if (req.query.date) {
             date = { date: req.query.date }
