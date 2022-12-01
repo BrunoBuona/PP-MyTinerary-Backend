@@ -27,13 +27,13 @@ const controller = {
         let { showId } = req.params
         let { date } = req.query
         if (req.query.showId) {
-            showId = { name: req.query.showId }
+            showId = { showId: req.query.showId}
         }
         if (req.query.date) {
             date = { date: req.query.date }
         }
         try {
-            let comments = await Comment.find(showId).sort({ date: -1 });
+            let comments = await Comment.find(showId).sort({ date: -1 }).populate('userId')
             if (comments.length >= 1) {
                 res.status(200).json({
                     response: comments,
