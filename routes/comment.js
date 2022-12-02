@@ -8,7 +8,7 @@ const verify = require('../middlewares/verifyComment')
 
 router.post('/', passport.authenticate("jwt", { session: false }), validator(schema), create);
 router.get('/', read);
-router.put('/:id',passport.authenticate("jwt", { session: false }),verify(model), update);
+router.put('/:id',passport.authenticate("jwt", { session: false }),verify(model), validator(schema),update);
 router.delete('/:id',passport.authenticate("jwt", { session: false }),verify(model), destroy);
 
 
