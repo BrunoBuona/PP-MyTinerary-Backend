@@ -2,12 +2,13 @@ const Joi = require("joi");
 
 const schema = Joi.object({
     showId: Joi.any(),
+    itineraryId: Joi.any(),
     userId: Joi.any(),
     date: Joi
-    .date()
+    .string()
     .required()
     .messages({
-      "date.base": "Please enter a date at date field",
+      "string.base": "Please enter a date at date field",
       "any.required": "This field is required, please enter it",
     }),
     comment: Joi

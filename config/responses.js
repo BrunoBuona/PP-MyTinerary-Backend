@@ -100,6 +100,18 @@ function notCity(req, res) {
         message: "Not Found ! ",
     });
 }
+function notyourComment(req, res) {
+    return res.status(401).json({
+        success: false,
+        message: 'You are not the owner of this event'
+    });
+}
+function commentNotFound(req, res) {
+    return res.status(404).json({
+        success: false,
+        message: "Not Found ! ",
+    });
+}
 
 
 
@@ -118,5 +130,7 @@ module.exports = {
     itineraryFound,
     notItinerary,
     cityFound,
-    notCity
+    notCity,
+    notyourComment,
+    commentNotFound
 }
