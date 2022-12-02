@@ -87,7 +87,7 @@ const controller = {
             logged: userDB.logged,
           },
           process.env.KEY_JWT,
-          { expiresIn: 60 * 60 * 99 }
+          { expiresIn: 60 * 60 * 929 }
         );
         return res.status(200).json({
           response: { user, token },
