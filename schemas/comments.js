@@ -2,6 +2,7 @@ const Joi = require("joi");
 
 const schema = Joi.object({
     showId: Joi.any(),
+    itineraryId: Joi.any(),
     userId: Joi.any(),
     date: Joi
     .string()
