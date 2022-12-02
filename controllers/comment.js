@@ -47,7 +47,7 @@ const controller = {
                     message: 'No Comments founded',
                 })
             }
-        } catch (error) {
+        }catch(error) {
             res.status(400).json({
                 success: false,
                 message: error.message,
