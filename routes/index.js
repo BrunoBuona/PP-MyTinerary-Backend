@@ -9,6 +9,8 @@ let mycities = require('./mycities')
 let myShows = require('./myshows')
 let myItinerary = require('./myitinerary')
 let comment = require('./comment')
+let reaction = require('./reaction')
+
 
 router.use('/api/auth',users)
 router.use('/api/hotels', hotel)
@@ -20,5 +22,6 @@ router.use('/api/mycities', mycities)
 router.use('/api/myshows', myShows)
 router.use('/api/myitineraries',myItinerary)
 router.use('/api/comment',comment)
+router.use('/api/reactions',reaction)
 
 module.exports = router;
