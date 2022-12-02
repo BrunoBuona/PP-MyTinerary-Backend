@@ -8,6 +8,7 @@ const controller = {
             let new_comment = await Comment.create({
                     userId: user.id,
                     showId: req.body.showId,
+                    itineraryId: req.body.itineraryId,
                     date: req.body.date,
                     comment: req.body.comment
             })
@@ -24,16 +25,19 @@ const controller = {
         }
     },
     read: async (req, res) => {
-        let { showId } = req.params
+        let { query } = req.params
         let { date } = req.query
         if (req.query.showId) {
-            showId = { showId: req.query.showId}
+            query = { showId: req.query.showId}
+        }
+        if (req.query.itineraryId) {
+          query = { itineraryId: req.query.itineraryId};
         }
         if (req.query.date) {
             date = { date: req.query.date }
         }
         try {
-            let comments = await Comment.find(showId).sort({ date: -1 }).populate('userId')
+            let comments = await Comment.find(query).sort({ date: -1 }).populate('userId')
             if (comments.length >= 1) {
                 res.status(200).json({
                     response: comments,
