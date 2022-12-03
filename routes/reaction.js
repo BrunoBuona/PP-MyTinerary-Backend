@@ -9,7 +9,7 @@ const Reaction=require('../models/Reactions')
 
 router.post('/',passport.authenticate("jwt", { session: false }),validator(schema),create);
 router.put('/',passport.authenticate("jwt", { session: false }),updateReaction)
-router.get('/',passport.authenticate("jet", { session: false }),read)
+router.get('/',read)
 router.put('/:id',passport.authenticate("jwt", { session: false }),activityUser(Reaction),destroy)
 
 module.exports = router;

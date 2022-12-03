@@ -20,7 +20,8 @@ const controller = {
 
   updateReaction: async (req, res) => {
     let query = {};
-    let Id = req.user.id;
+    let Id = req.user.id
+
     if (req.query.itineraryId) {
       query = {
         itineraryId: req.query.itineraryId,
@@ -85,14 +86,7 @@ const controller = {
         select: "name lastName photo",
       });
       if (reactions.length > 0) {
-        let lengthOfReactions = {};
-        reactions.forEach(
-          (reaction) =>
-            (lengthOfReactions[reaction.name] = reaction.userId.length)
-        );
-
         res.status(200).json({
-          lengthOfReactions,
           data: reactions,
           id: req.query.itineraryId,
           success: true,
