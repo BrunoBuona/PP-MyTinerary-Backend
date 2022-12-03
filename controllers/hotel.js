@@ -56,7 +56,6 @@ const controller = {
                     response: all,
                     success: true,
                     message: 'The hotel was successfully found.',
-       
                 })
             }else if(all.length === 0){
                 res.status(404).json({
