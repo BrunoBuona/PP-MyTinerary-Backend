@@ -40,7 +40,7 @@ const controller = {
             let comments = await Comment.find(query).sort({ date: -1 }).populate('userId')
             if (comments.length >= 1) {
                 res.status(200).json({
-                    response: comments,
+                    data: comments,
                     success: true,
                     message: 'Comments successfully founded.',
 
@@ -65,6 +65,7 @@ const controller = {
           let comment = await Comment.findOneAndUpdate({ _id: id }, {
             comment: req.body.comment,
             showId: req.body.showId,
+            itineraryId: req.body.itineraryId,
             date: req.body.date,
             userId: user.id
             
