@@ -36,15 +36,13 @@ const schema = joi.object({
             'string.empty': 'The icon back field is empty',
         }),
     userId: joi
-        .array()
-        .items(joi
-            .string()
-            .messages({
-                'string.base': 'User ID must be a type of text',
-            }))
-        .messages({
-            'array.base': 'User ID must be a type of array',
-        }),
+    .array().items(joi.string())
+    .required()
+    .messages({
+        'string.base': `User ID must be a type of 'text'`,
+        'any.required': 'The user ID field is required',
+        'string.empty': 'The user ID field is empty',
+    }),
 });
 
 module.exports = schema;
